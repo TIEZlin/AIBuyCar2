@@ -88,7 +88,7 @@ export default {
         // 模拟登录请求
         await new Promise(resolve => setTimeout(resolve, 800))
         // 简单示例：登录成功后跳转到关于页
-        this.$router.push('/about')
+        this.$router.push('/chat-container')
       } catch (e) {
         this.errorMessage = '登录失败，请稍后重试'
       } finally {
