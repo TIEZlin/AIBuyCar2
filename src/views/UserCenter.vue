@@ -41,6 +41,7 @@
       <div class="actions">
         <button class="primary" type="submit">保存信息</button>
         <button class="ghost" type="button" @click="goBack">返回</button>
+        <button class="danger" type="button" @click="logout">退出登录</button>
       </div>
 
       <p v-if="message" class="message">{{ message }}</p>
@@ -97,6 +98,10 @@ export default {
     },
     goBack() {
       this.$router.back();
+    },
+    logout() {
+      localStorage.removeItem('buycar_auth');
+      this.$router.push('/');
     }
   }
 };
@@ -112,5 +117,6 @@ input { height: 40px; padding: 0 12px; border-radius: 8px; border: 1px solid rgb
 .actions { display: flex; gap: 12px; margin-top: 6px; }
 .primary { padding: 10px 16px; border: none; border-radius: 10px; background: linear-gradient(135deg, var(--neon), var(--neon-2)); color: #00110d; font-weight: 800; }
 .ghost { padding: 10px 16px; border-radius: 10px; border: 1px solid rgba(148,163,184,0.25); background: transparent; color: var(--text); }
+.danger { padding: 10px 16px; border: none; border-radius: 10px; background: #ff6b6b; color: white; font-weight: 800; }
 .message { color: var(--muted); margin-top: 8px; }
 </style>
